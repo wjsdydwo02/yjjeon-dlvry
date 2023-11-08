@@ -21,10 +21,6 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/shopOrders/**, 
-        - id: BoundedContext1659.375
-          uri: http://localhost:8085
-          predicates:
-            - Path=, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -61,10 +57,6 @@ spring:
           uri: http://shop:8080
           predicates:
             - Path=/shopOrders/**, 
-        - id: BoundedContext1659.375
-          uri: http://boundedContext1659_375:8080
-          predicates:
-            - Path=, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

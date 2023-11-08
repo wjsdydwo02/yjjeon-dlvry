@@ -15,7 +15,6 @@ import ShopShopOrderManager from "./components/listers/ShopShopOrderCards"
 import ShopShopOrderDetail from "./components/listers/ShopShopOrderDetail"
 
 
-
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -52,7 +51,6 @@ export default new Router({
                 name: 'ShopShopOrderDetail',
                 component: ShopShopOrderDetail
             },
-
 
 
 

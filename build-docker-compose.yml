@@ -65,17 +65,3 @@ services:
       - ./shop:/usr/src
       - ./maven-repo:/root/.m2
       
-  BoundedContext1659.375:
-    depends_on: 
-      - kafka
-    image: adoptopenjdk/maven-openjdk11:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    command: mvn spring-boot:run
-    ports:
-      - 8085:8085
-    working_dir: /usr/src
-    volumes:
-      - ./BoundedContext1659.375:/usr/src
-      - ./maven-repo:/root/.m2
-      
