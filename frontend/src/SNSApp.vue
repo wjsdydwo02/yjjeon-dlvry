@@ -36,6 +36,18 @@
                 <v-list>
                     <v-list-item
                         class="px-2"
+                        key="deliveries"
+                        to="/riders/deliveries"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Delivery
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
                         key="clientOrders"
                         to="/customers/clientOrders"
                         @click="changeUrl()"
@@ -55,18 +67,6 @@
                         style="font-weight:700;"
                     >
                         ShopOrder
-                    </v-list-item>
-
-
-                    <v-list-item
-                        class="px-2"
-                        key="deliveries"
-                        to="/riders/deliveries"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        Delivery
                     </v-list-item>
 
 
@@ -150,6 +150,13 @@ export default {
         ImageUrl: '',
         aggregate: [
             { 
+                title: 'Delivery', 
+                description: '', 
+                key: 'deliveries', 
+                route: '/riders/deliveries',
+                ImageUrl: '',
+            },
+            { 
                 title: 'ClientOrder', 
                 description: '', 
                 key: 'clientOrders', 
@@ -161,13 +168,6 @@ export default {
                 description: '', 
                 key: 'shopOrders', 
                 route: '/shops/shopOrders',
-                ImageUrl: '',
-            },
-            { 
-                title: 'Delivery', 
-                description: '', 
-                key: 'deliveries', 
-                route: '/riders/deliveries',
                 ImageUrl: '',
             },
             

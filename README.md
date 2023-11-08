@@ -20,10 +20,10 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
+- rider
 - customer
 - shop
-- rider
-- BoundedContext101.96078431372548
+- BoundedContext1659.375
 
 
 ## Run API Gateway (Spring Gateway)
@@ -33,6 +33,10 @@ mvn spring-boot:run
 ```
 
 ## Test by API
+- rider
+```
+ http :8088/deliveries id="id" orderId="orderId" riderId="riderId" menuLst="MenuLst" shopAddress="shopAddress" custAddress="custAddress" 
+```
 - customer
 ```
  http :8088/clientOrders id="id" userId="UserId" userName="userName" address="Address" shopId="shopId" shopName="shopName" menuLst="MenuLst" orderStatus="OrderStatus" deliveryStatus="DeliveryStatus" orderDt="orderDt" 
@@ -41,11 +45,7 @@ mvn spring-boot:run
 ```
  http :8088/shopOrders id="id" clientOrderId="clientOrderId" menuLst="menuLst" orderStatus="orderStatus" deliverystatus="deliverystatus" orderDt="orderDt" drliveryStatus="drliveryStatus" shopAddress="shopAddress" custAddress="custAddress" 
 ```
-- rider
-```
- http :8088/deliveries id="id" orderId="orderId" riderId="riderId" menuLst="MenuLst" shopAddress="shopAddress" custAddress="custAddress" 
-```
-- BoundedContext101.96078431372548
+- BoundedContext1659.375
 ```
 ```
 

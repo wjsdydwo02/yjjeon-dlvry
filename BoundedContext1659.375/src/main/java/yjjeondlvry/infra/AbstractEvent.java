@@ -9,7 +9,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.util.MimeTypeUtils;
-import yjjeondlvry.BoundedContext101_96078431372548Application;
+import yjjeondlvry.BoundedContext1659_375Application;
 import yjjeondlvry.config.kafka.KafkaProcessor;
 
 //<<< Clean Arch / Outbound Adaptor
@@ -32,7 +32,7 @@ public class AbstractEvent {
         /**
          * spring streams 방식
          */
-        KafkaProcessor processor = BoundedContext101_96078431372548Application.applicationContext.getBean(
+        KafkaProcessor processor = BoundedContext1659_375Application.applicationContext.getBean(
             KafkaProcessor.class
         );
         MessageChannel outputChannel = processor.outboundTopic();

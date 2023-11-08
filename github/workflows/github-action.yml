@@ -29,11 +29,21 @@ jobs:
       
       - name: Build Maven Projects
         run: |
+          mvn clean package -f ./rider/pom.xml
           mvn clean package -f ./customer/pom.xml
           mvn clean package -f ./shop/pom.xml
-          mvn clean package -f ./rider/pom.xml
-          mvn clean package -f ./BoundedContext101.96078431372548/pom.xml
+          mvn clean package -f ./BoundedContext1659.375/pom.xml
 
+      - name: Docker Build and push for Rider
+        uses: docker/build-push-action@v4
+        with:
+          context: ./rider
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/rider:latest
+            ghcr.io/${{ github.repository }}/rider:${{ github.ref_name }}
+            
       - name: Docker Build and push for Customer
         uses: docker/build-push-action@v4
         with:
@@ -54,23 +64,13 @@ jobs:
             ghcr.io/${{ github.repository }}/shop:latest
             ghcr.io/${{ github.repository }}/shop:${{ github.ref_name }}
             
-      - name: Docker Build and push for Rider
+      - name: Docker Build and push for BoundedContext1659_375
         uses: docker/build-push-action@v4
         with:
-          context: ./rider
+          context: ./BoundedContext1659.375
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/rider:latest
-            ghcr.io/${{ github.repository }}/rider:${{ github.ref_name }}
-            
-      - name: Docker Build and push for BoundedContext101_96078431372548
-        uses: docker/build-push-action@v4
-        with:
-          context: ./BoundedContext101.96078431372548
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext101.96078431372548:latest
-            ghcr.io/${{ github.repository }}/boundedcontext101.96078431372548:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/boundedcontext1659.375:latest
+            ghcr.io/${{ github.repository }}/boundedcontext1659.375:${{ github.ref_name }}
             

@@ -9,19 +9,19 @@ spring:
     gateway:
 #<<< API Gateway / Routes
       routes:
-        - id: customer
+        - id: rider
           uri: http://localhost:8082
+          predicates:
+            - Path=/deliveries/**, 
+        - id: customer
+          uri: http://localhost:8083
           predicates:
             - Path=/clientOrders/**, 
         - id: shop
-          uri: http://localhost:8083
-          predicates:
-            - Path=/shopOrders/**, 
-        - id: rider
           uri: http://localhost:8084
           predicates:
-            - Path=/deliveries/**, 
-        - id: BoundedContext101.96078431372548
+            - Path=/shopOrders/**, 
+        - id: BoundedContext1659.375
           uri: http://localhost:8085
           predicates:
             - Path=, 
@@ -49,6 +49,10 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: rider
+          uri: http://rider:8080
+          predicates:
+            - Path=/deliveries/**, 
         - id: customer
           uri: http://customer:8080
           predicates:
@@ -57,12 +61,8 @@ spring:
           uri: http://shop:8080
           predicates:
             - Path=/shopOrders/**, 
-        - id: rider
-          uri: http://rider:8080
-          predicates:
-            - Path=/deliveries/**, 
-        - id: BoundedContext101.96078431372548
-          uri: http://boundedContext101_96078431372548:8080
+        - id: BoundedContext1659.375
+          uri: http://boundedContext1659_375:8080
           predicates:
             - Path=, 
         - id: frontend

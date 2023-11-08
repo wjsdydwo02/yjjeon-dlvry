@@ -10,14 +10,14 @@ import yjjeondlvry.config.kafka.KafkaProcessor;
 @SpringBootApplication
 @EnableBinding(KafkaProcessor.class)
 @EnableFeignClients
-public class BoundedContext101_96078431372548Application {
+public class BoundedContext1659_375Application {
 
     public static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         applicationContext =
             SpringApplication.run(
-                BoundedContext101_96078431372548Application.class,
+                BoundedContext1659_375Application.class,
                 args
             );
     }

@@ -23,7 +23,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
-  customer:
+  rider:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -32,6 +32,20 @@ services:
     command: mvn spring-boot:run
     ports:
       - 8082:8082
+    working_dir: /usr/src
+    volumes:
+      - ./rider:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  customer:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 8083:8083
     working_dir: /usr/src
     volumes:
       - ./customer:/usr/src
@@ -45,27 +59,13 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     command: mvn spring-boot:run
     ports:
-      - 8083:8083
+      - 8084:8084
     working_dir: /usr/src
     volumes:
       - ./shop:/usr/src
       - ./maven-repo:/root/.m2
       
-  rider:
-    depends_on: 
-      - kafka
-    image: adoptopenjdk/maven-openjdk11:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    command: mvn spring-boot:run
-    ports:
-      - 8084:8084
-    working_dir: /usr/src
-    volumes:
-      - ./rider:/usr/src
-      - ./maven-repo:/root/.m2
-      
-  BoundedContext101.96078431372548:
+  BoundedContext1659.375:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -76,6 +76,6 @@ services:
       - 8085:8085
     working_dir: /usr/src
     volumes:
-      - ./BoundedContext101.96078431372548:/usr/src
+      - ./BoundedContext1659.375:/usr/src
       - ./maven-repo:/root/.m2
       
