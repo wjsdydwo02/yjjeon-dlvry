@@ -37,7 +37,7 @@
                     <v-list-item
                         class="px-2"
                         key="clientOrders"
-                        to="/boundedContext185s/clientOrders"
+                        to="/customers/clientOrders"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -49,7 +49,7 @@
                     <v-list-item
                         class="px-2"
                         key="shopOrders"
-                        to="/boundedContext46s/shopOrders"
+                        to="/shops/shopOrders"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -61,7 +61,7 @@
                     <v-list-item
                         class="px-2"
                         key="deliveries"
-                        to="/boundedContext1499s/deliveries"
+                        to="/riders/deliveries"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -152,21 +152,21 @@ export default {
                 title: 'ClientOrder', 
                 description: '', 
                 key: 'clientOrders', 
-                route: '/boundedContext185s/clientOrders',
+                route: '/customers/clientOrders',
                 ImageUrl: '',
             },
             { 
                 title: 'ShopOrder', 
                 description: '', 
                 key: 'shopOrders', 
-                route: '/boundedContext46s/shopOrders',
+                route: '/shops/shopOrders',
                 ImageUrl: '',
             },
             { 
                 title: 'Delivery', 
                 description: '', 
                 key: 'deliveries', 
-                route: '/boundedContext1499s/deliveries',
+                route: '/riders/deliveries',
                 ImageUrl: '',
             },
             

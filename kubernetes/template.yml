@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext185
+  name: customer
   labels:
-    app: BoundedContext185
+    app: customer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext185
+      app: customer
   template:
     metadata:
       labels:
-        app: BoundedContext185
+        app: customer
     spec:
       containers:
-        - name: BoundedContext185
-          image: username/BoundedContext185:latest
+        - name: customer
+          image: username/customer:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext46
+  name: shop
   labels:
-    app: BoundedContext46
+    app: shop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext46
+      app: shop
   template:
     metadata:
       labels:
-        app: BoundedContext46
+        app: shop
     spec:
       containers:
-        - name: BoundedContext46
-          image: username/BoundedContext46:latest
+        - name: shop
+          image: username/shop:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -83,22 +83,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext1499
+  name: rider
   labels:
-    app: BoundedContext1499
+    app: rider
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext1499
+      app: rider
   template:
     metadata:
       labels:
-        app: BoundedContext1499
+        app: rider
     spec:
       containers:
-        - name: BoundedContext1499
-          image: username/BoundedContext1499:latest
+        - name: rider
+          image: username/rider:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -125,15 +125,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext185
+  name: customer
   labels:
-    app: BoundedContext185
+    app: customer
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext185
+    app: customer
 
 
 ---
@@ -142,15 +142,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext46
+  name: shop
   labels:
-    app: BoundedContext46
+    app: shop
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext46
+    app: shop
 
 
 ---
@@ -159,13 +159,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext1499
+  name: rider
   labels:
-    app: BoundedContext1499
+    app: rider
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext1499
+    app: rider
 

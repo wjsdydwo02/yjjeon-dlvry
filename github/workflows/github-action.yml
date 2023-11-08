@@ -29,37 +29,37 @@ jobs:
       
       - name: Build Maven Projects
         run: |
-          mvn clean package -f ./BoundedContext185/pom.xml
-          mvn clean package -f ./BoundedContext46/pom.xml
-          mvn clean package -f ./BoundedContext1499/pom.xml
+          mvn clean package -f ./customer/pom.xml
+          mvn clean package -f ./shop/pom.xml
+          mvn clean package -f ./rider/pom.xml
 
-      - name: Docker Build and push for BoundedContext185
+      - name: Docker Build and push for Customer
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext185
+          context: ./customer
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext185:latest
-            ghcr.io/${{ github.repository }}/boundedcontext185:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/customer:latest
+            ghcr.io/${{ github.repository }}/customer:${{ github.ref_name }}
             
-      - name: Docker Build and push for BoundedContext46
+      - name: Docker Build and push for Shop
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext46
+          context: ./shop
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext46:latest
-            ghcr.io/${{ github.repository }}/boundedcontext46:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/shop:latest
+            ghcr.io/${{ github.repository }}/shop:${{ github.ref_name }}
             
-      - name: Docker Build and push for BoundedContext1499
+      - name: Docker Build and push for Rider
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext1499
+          context: ./rider
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext1499:latest
-            ghcr.io/${{ github.repository }}/boundedcontext1499:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/rider:latest
+            ghcr.io/${{ github.repository }}/rider:${{ github.ref_name }}
             
