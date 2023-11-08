@@ -32,6 +32,7 @@ jobs:
           mvn clean package -f ./customer/pom.xml
           mvn clean package -f ./shop/pom.xml
           mvn clean package -f ./rider/pom.xml
+          mvn clean package -f ./BoundedContext101.96078431372548/pom.xml
 
       - name: Docker Build and push for Customer
         uses: docker/build-push-action@v4
@@ -62,4 +63,14 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/rider:latest
             ghcr.io/${{ github.repository }}/rider:${{ github.ref_name }}
+            
+      - name: Docker Build and push for BoundedContext101_96078431372548
+        uses: docker/build-push-action@v4
+        with:
+          context: ./BoundedContext101.96078431372548
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/boundedcontext101.96078431372548:latest
+            ghcr.io/${{ github.repository }}/boundedcontext101.96078431372548:${{ github.ref_name }}
             

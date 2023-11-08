@@ -52,6 +52,7 @@ pluralCaseList.push( {plural: "shops/shopOrders", pascal: "ShopShopOrder"} )
 pluralCaseList.push( {plural: "riders/deliveries", pascal: "RiderDelivery"} )
 
 
+
 Vue.prototype.$ManagerLists.forEach(function(item, idx) {
   pluralCaseList.forEach(function(tmp) {
     if(item.toLowerCase() == tmp.pascal.toLowerCase()) {

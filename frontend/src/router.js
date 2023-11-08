@@ -15,6 +15,7 @@ import RiderDeliveryManager from "./components/listers/RiderDeliveryCards"
 import RiderDeliveryDetail from "./components/listers/RiderDeliveryDetail"
 
 
+
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -51,6 +52,7 @@ export default new Router({
                 name: 'RiderDeliveryDetail',
                 component: RiderDeliveryDetail
             },
+
 
 
 
