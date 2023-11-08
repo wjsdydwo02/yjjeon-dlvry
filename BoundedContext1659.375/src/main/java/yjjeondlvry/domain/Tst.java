@@ -23,5 +23,30 @@ public class Tst {
         );
         return tstRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public static void test(MenuPrepareCompleted menuPrepareCompleted) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Tst tst = new Tst();
+        repository().save(tst);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(menuPrepareCompleted.get???()).ifPresent(tst->{
+            
+            tst // do something
+            repository().save(tst);
+
+
+         });
+        */
+
+    }
+    //>>> Clean Arch / Port Method
+
 }
 //>>> DDD / Aggregate Root

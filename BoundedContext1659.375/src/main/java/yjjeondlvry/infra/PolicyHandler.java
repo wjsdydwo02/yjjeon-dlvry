@@ -19,5 +19,21 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='MenuPrepareCompleted'"
+    )
+    public void wheneverMenuPrepareCompleted_Test(
+        @Payload MenuPrepareCompleted menuPrepareCompleted
+    ) {
+        MenuPrepareCompleted event = menuPrepareCompleted;
+        System.out.println(
+            "\n\n##### listener Test : " + menuPrepareCompleted + "\n\n"
+        );
+
+        // Sample Logic //
+        Tst.test(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor
